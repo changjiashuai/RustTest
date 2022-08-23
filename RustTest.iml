@@ -24,6 +24,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test_pin/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test_stream/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test_web/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/adder/benches" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/src/test_drop/target" />
       <excludeFolder url="file://$MODULE_DIR$/src/test_rc/target" />

@@ -1,4 +1,6 @@
+#![feature(test)]
 extern crate core;
+extern crate test;
 
 pub fn greeting(name: &str) -> String {
     format!("Hello {}!", name)
@@ -30,6 +32,7 @@ pub fn add(a: i32, b: i32) -> i32 {
 
 #[cfg(test)]
 mod tests {
+    use test::Bencher;
     use crate::{add, greeting, Guess, prints_and_returns_10};
 
     #[test]
@@ -82,5 +85,10 @@ mod tests {
     #[test]
     fn test_add() {
         assert_eq!(add(2, 3), 5);
+    }
+
+    #[bench]
+    fn bench_add_two(b: &mut Bencher) {
+        b.iter(|| add(2,2));
     }
 }
