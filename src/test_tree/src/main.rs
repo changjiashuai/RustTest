@@ -36,9 +36,13 @@ fn main() {
     // root.as_ref().unwrap().borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(4))));
     // root.as_ref().unwrap().borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(6))));
     // assert_eq!(true, check_tree(root))
-    let mut list = vec![3, 2, 3, 1, 2, 4, 5, 5, 6];
+    let mut list = vec![3,2,1,5,6,4];
     let new_list = quick_sort2(&mut list);
     println!("{:?}", new_list);
+
+    let size = list.len();
+    let target = quick_sort3(&mut list, size as i32 - 2);
+    println!("{}", target);
 }
 
 // 1, 1, 1, 2, 3
@@ -134,4 +138,26 @@ fn quick_sort2(list: &mut Vec<i32>) -> &mut Vec<i32> {
         list.append(&mut left);
     }
     list
+}
+
+
+fn quick_sort3(list: &mut Vec<i32>, index: i32) -> i32 {
+    if list.len() > index as usize {
+        let mut pivot = list[index as usize];
+        let (mut left, mut right) = (Vec::new(), Vec::new());
+        for num in list.iter_mut() {
+            if *num == pivot {
+                return *num;
+            } else if *num < pivot {
+                left.push(*num);
+            } else {
+                right.push(*num);
+            }
+        }
+
+        pivot = quick_sort3(&mut left, index);
+        pivot = quick_sort3(&mut right, index);
+        return pivot;
+    }
+    -1
 }
