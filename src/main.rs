@@ -1,3 +1,6 @@
+mod max_square;
+
+use std::cmp::max;
 use std::ops::{Deref, DerefMut};
 use std::rc::Rc;
 
@@ -97,6 +100,8 @@ fn main() {
     display(&s);
     display2(&mut s);
     display(&s);
+
+    // max_square()
 }
 
 fn display2(s: &mut String){
